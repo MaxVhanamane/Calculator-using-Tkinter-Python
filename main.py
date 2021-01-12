@@ -59,8 +59,9 @@ def clickaction(event):
 
 root = Tk()
 root.title("Calculator")
-root.geometry("400x600")
+root.geometry("250x400")
 root.config(bg="pink") #Changing root background
+
 
 # To change it's icon ....the file should be in (.ico) format
 root.iconbitmap("image/calicon.ico")
@@ -68,11 +69,11 @@ root.iconbitmap("image/calicon.ico")
 # adding textfield (Here we see all the values when we press button)
 # To change height of entry widget we have to increase font size there is no other option (till now)
 text = Entry(root, font="lucida 25 bold", justify=CENTER)
-text.pack(side=TOP, pady=10, padx=5, fill=X)
+text.pack(side=TOP, pady=5, padx=2, fill=X)
 
 # frame is like div container
 # creating one frame to put buttons inside that frame
-buttonframe = Frame(root)
+buttonframe = Frame(root,padx=0,pady=1)
 buttonframe.pack(side=TOP) #side will decide where to put that frame. TOP (default), BOTTOM, LEFT, or RIGHT.
 
 # Adding buttons in frame(buttonframe)
@@ -83,9 +84,9 @@ buttonframe.pack(side=TOP) #side will decide where to put that frame. TOP (defau
 initial_value = 9
 for i in range(0, 3):
     for j in range(2, -1, -1):
-        btn = Button(buttonframe, text=initial_value, font=font, width=5, height=3, pady=5, relief="ridge",
+        btn = Button(buttonframe, text=initial_value, font=font, width=3, height=2, relief="ridge",
                      activebackground="grey", activeforeground="white",bg="pink")
-        btn.grid(row=i, column=j, padx=2, pady=2)
+        btn.grid(row=i, column=j, padx=1, pady=1)
 
         btn.bind('<Button-1>', clickaction)
         initial_value -= 1
@@ -94,51 +95,51 @@ for i in range(0, 3):
 
 
 # Creating other buttons
-Zerobtn = Button(buttonframe, text="0", font=font, width=5, height=3, pady=5,
+Zerobtn = Button(buttonframe, text="0", font=font, width=3, height=2,
                  relief="ridge", activebackground="grey", activeforeground="white",bg="pink")
-Zerobtn.grid(row=3, column=1, padx=2, pady=2)
+Zerobtn.grid(row=3, column=1, padx=1, pady=1)
 
 # Creating equal button using one liner code
 # when u create one liner code it will create problem while binding so its better to assign it to some variable below code will also work
-# Button(buttonframe, text="=", font=font, width=5, height=3, pady=5, relief="ridge",
+# Button(buttonframe, text="=", font=font, width=3, height=2,  relief="ridge",
 #        activebackground="grey", activeforeground="white").grid(row=3, column=2, padx=2, pady=2)
 
-equalbtn = Button(buttonframe, text="=", font=font, width=5, height=3, pady=5, relief="ridge",
+equalbtn = Button(buttonframe, text="=", font=font, width=3, height=2,  relief="ridge",
                   activebackground="grey", activeforeground="white",bg="pink")
-equalbtn.grid(row=3, column=2, padx=2, pady=2)
+equalbtn.grid(row=3, column=2, padx=1, pady=1)
 
 # Creating dot button
-dotbtn = Button(buttonframe, text=".", font=font, width=5, height=3, pady=5,
+dotbtn = Button(buttonframe, text=".", font=font, width=3, height=2, 
                 relief="ridge", activebackground="grey", activeforeground="white",bg="pink")
-dotbtn.grid(row=3, column=0, padx=2, pady=2)
+dotbtn.grid(row=3, column=0, padx=1, pady=1)
 
 
 # Creating operation buttons +,-,=,/
-divisionbtn = Button(buttonframe, text="/", font=font, width=5, height=3, pady=5,
+divisionbtn = Button(buttonframe, text="/", font=font, width=3, height=2, 
                      relief="ridge", activebackground="grey", activeforeground="white",bg="pink")
-divisionbtn.grid(row=0, column=3, padx=2, pady=2)
+divisionbtn.grid(row=0, column=3,  padx=1, pady=1)
 
-multiplicationbtn = Button(buttonframe, text="x", font=font, width=5, height=3, pady=5,
+multiplicationbtn = Button(buttonframe, text="x", font=font, width=3, height=2, 
                            relief="ridge", activebackground="grey", activeforeground="white",bg="pink")
-multiplicationbtn.grid(row=1, column=3, padx=2, pady=2)
+multiplicationbtn.grid(row=1, column=3, padx=1, pady=1)
 
-substractionbtn = Button(buttonframe, text="-", font=font, width=5, height=3, pady=5,
+substractionbtn = Button(buttonframe, text="-", font=font, width=3, height=2, 
                          relief="ridge", activebackground="grey", activeforeground="white",bg="pink")
-substractionbtn.grid(row=2, column=3, padx=2, pady=2)
+substractionbtn.grid(row=2, column=3, padx=1, pady=1)
 
-additionbtn = Button(buttonframe, text="+", font=font, width=5, height=3, pady=5,
+additionbtn = Button(buttonframe, text="+", font=font, width=3, height=2, 
                      relief="ridge", activebackground="grey", activeforeground="white",bg="pink")
-additionbtn.grid(row=3, column=3, padx=2, pady=2)
+additionbtn.grid(row=3, column=3, padx=1, pady=1)
 
 # Creating clear and back button
 # To combine 2 columns we can use columnspan=2 in grid
-clearbtn = Button(buttonframe, text="⌫", font=font, width=11, height=2, pady=5,
+clearbtn = Button(buttonframe, text="⌫", font=font, width=7, height=1, 
                   relief="ridge", activebackground="grey", activeforeground="white",bg="pink")
-clearbtn.grid(row=4, column=0, padx=1, pady=2, columnspan=2)
+clearbtn.grid(row=4, column=0, padx=1, pady=1, columnspan=2)
 
-allclearbtn = Button(buttonframe, text="C", font=font, width=11, height=2, pady=5,
+allclearbtn = Button(buttonframe, text="C", font=font, width=7, height=1, 
                      relief="ridge", activebackground="grey", activeforeground="white",bg="pink")
-allclearbtn.grid(row=4, column=2, padx=1, pady=2, columnspan=2)
+allclearbtn.grid(row=4, column=2, padx=1, pady=1, columnspan=2)
 
 # Binding all remaining buttons
 equalbtn.bind('<Button-1>', clickaction)
@@ -155,41 +156,41 @@ allclearbtn.bind('<Button-1>', clickaction)
 # ....................Coding for scintific calculator....................
 
 # Creating frame for scintific calculator
-sciFrame = Frame(root)
+sciFrame = Frame(root, padx=0, pady=1)
 
 
-sqrt = Button(sciFrame, text="√", font=font, width=5, height=2, pady=5,
+sqrt = Button(sciFrame, text="√", font=font, width=3, height=2, 
               relief="ridge", activebackground="grey", activeforeground="white",bg="orange")
-sqrt.grid(row=0, column=0, padx=2, pady=2)
+sqrt.grid(row=0, column=0, padx=1, pady=1)
 
-power = Button(sciFrame, text="^", font=font, width=5, height=2, pady=5,
+power = Button(sciFrame, text="^", font=font, width=3, height=2, 
                relief="ridge", activebackground="grey", activeforeground="white",bg="orange")
-power.grid(row=0, column=1, padx=2, pady=2)
+power.grid(row=0, column=1, padx=1, pady=1)
 
-factorialbtn = Button(sciFrame, text="x!", font=font, width=5, height=2, pady=5, relief="ridge",
+factorialbtn = Button(sciFrame, text="x!", font=font, width=3, height=2,  relief="ridge",
                       activebackground="grey", activeforeground="white",bg="orange")
-factorialbtn.grid(row=0, column=2, padx=2, pady=2)
+factorialbtn.grid(row=0, column=2, padx=1, pady=1)
 
 
-radbtn = Button(sciFrame, text="Rad", font=font, width=5, height=2, pady=5, relief="ridge",
+radbtn = Button(sciFrame, text="Rad", font=font, width=3, height=2,  relief="ridge",
                 activebackground="grey", activeforeground="white",bg="orange")
-radbtn.grid(row=0, column=3, padx=2, pady=2)
+radbtn.grid(row=0, column=3, padx=1, pady=1)
 
-sinbtn = Button(sciFrame, text="sin", font=font, width=5, height=2, pady=5, relief="ridge",
+sinbtn = Button(sciFrame, text="sin", font=font, width=3, height=2,  relief="ridge",
                 activebackground="grey", activeforeground="white",bg="orange")
-sinbtn.grid(row=1, column=0, padx=2, pady=2)
+sinbtn.grid(row=1, column=0, padx=1, pady=1)
 
-cosbtn = Button(sciFrame, text="cos", font=font, width=5, height=2, pady=5, relief="ridge",
+cosbtn = Button(sciFrame, text="cos", font=font, width=3, height=2,  relief="ridge",
                 activebackground="grey", activeforeground="white",bg="orange")
-cosbtn.grid(row=1, column=1, padx=2, pady=2)
+cosbtn.grid(row=1, column=1, padx=1, pady=1)
 
-tanbtn = Button(sciFrame, text="tan", font=font, width=5, height=2, pady=5, relief="ridge",
+tanbtn = Button(sciFrame, text="tan", font=font, width=3, height=2,  relief="ridge",
                 activebackground="grey", activeforeground="white",bg="orange")
-tanbtn.grid(row=1, column=2, padx=2, pady=2)
+tanbtn.grid(row=1, column=2, padx=1, pady=1)
 
-degbtn = Button(sciFrame, text="Deg", font=font, width=5, height=2, pady=5, relief="ridge",
+degbtn = Button(sciFrame, text="Deg", font=font, width=3, height=2,  relief="ridge",
                 activebackground="grey", activeforeground="white",bg="orange")
-degbtn.grid(row=1, column=3, padx=2, pady=2)
+degbtn.grid(row=1, column=3, padx=1, pady=1)
 
 
 # Creating functions ...
@@ -265,7 +266,7 @@ def ScientificCal_click():
         modename.delete(0)
         # self.filemenu2.delete("Stop") $ delete item with the label "Stop"
         sciFrame.pack_forget()
-        root.geometry("400x600")
+        root.geometry("250x400")
 
     else:
         modename.add_command(label="Normal Mode",
@@ -274,7 +275,7 @@ def ScientificCal_click():
         buttonframe.pack_forget()
         sciFrame.pack(side=TOP)
         buttonframe.pack(side=TOP)
-        root.geometry("400x750")
+        root.geometry("250x520")
 
 
 # Adding menubar
@@ -293,7 +294,7 @@ root.mainloop()
 
 
 
-#If u want to convert .py file to .exe file...............
+#If you want to convert .py file to .exe file...............
 #First install pyinstaller module
 #While converting this .py file to .exe use command pyinstaller --onefile main.py (whatever ur filename is ) 
 #If you use above command it will convert it into .exe file but when you open that exe file it will open your file along with black console in background 
